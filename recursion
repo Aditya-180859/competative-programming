@@ -1,21 +1,18 @@
 // write a program to find the fibbonaci series
 
-import pandas as pd
+def fibb(number):
 
-df = pd.read_csv("athlete_events.csv")
-region_df = pd.read_csv("noc_regions.csv")
+    if  number==0:
+        return 0
 
-def preprocess():
-    global  df,region_df
+    elif number==1 or number==2:
+        return 1
 
-    # summer olympics
-    df = df[df['Season']=='Summer']
+    else:
+        return (fibb(number-1)+fibb(number-2))
 
-    #merge both data
-    df=df.merge(region_df,on='NOC',how='left')
+number= int(input("enter the number:"))
 
-    #dropping duplicates
-    df.drop_duplicates(inplace=True)
-    df = pd.concat([df, pd.get_dummies(df['Medal'])], axis=1)
-
-    return df
+print("the fibb series:",end=" ")
+for i in range(0,number):
+    print(fibb(i))
