@@ -23,5 +23,8 @@ while(a<b):
     elif(arr[mid]>search):
         b=arr[n-1]
 
-    else:
+    elif(arr[mid]>search):
         a=arr[n+1]
+     
+    else:
+        print("not found")
